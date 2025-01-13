@@ -1,0 +1,13 @@
+{
+  "name": "@shreyas/vite-plugin-purgecss",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": "./main.ts",
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "purgecss": "npm:purgecss@^7.0.2",
+    "vite": "npm:vite@^6.0.7"
+  }
+}
