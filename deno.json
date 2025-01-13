@@ -1,6 +1,6 @@
 {
   "name": "@shreyas/vite-plugin-purgecss",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "license": "MIT",
   "exports": "./main.ts",
   "tasks": {
