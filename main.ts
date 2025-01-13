@@ -36,8 +36,15 @@ export function purgecss(options: Partial<Options>): Plugin {
   };
 }
 
-export const safeLists = {
-  svelte: /svelte-[a-zA-Z0-9]{6,8}/,
+const SVELTE_SAFELIST = /svelte-[a-zA-Z0-9]{6,8}/;
+export const safeLists: Record<string, Options["safelist"]> = {
+  svelte: {
+    greedy: [SVELTE_SAFELIST],
+    deep: [],
+    standard: [],
+    keyframes: [],
+    variables: [],
+  },
 };
 
 export default purgecss;
