@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "npm:defu@^6.1.4": "6.1.4",
     "npm:purgecss@^7.0.2": "7.0.2",
     "npm:vite@^6.0.7": "6.0.7"
   },
@@ -197,6 +198,9 @@
     },
     "cssesc@3.0.0": {
       "integrity": "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg=="
+    },
+    "defu@6.1.4": {
+      "integrity": "sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg=="
     },
     "eastasianwidth@0.2.0": {
       "integrity": "sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA=="
@@ -431,6 +435,7 @@
   },
   "workspace": {
     "dependencies": [
+      "npm:defu@^6.1.4",
       "npm:purgecss@^7.0.2",
       "npm:vite@^6.0.7"
     ]
