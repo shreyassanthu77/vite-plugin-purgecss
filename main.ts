@@ -2,20 +2,15 @@ import { PurgeCSS, type Options, defaultOptions } from "purgecss";
 import type { Plugin } from "vite";
 import { defu } from "defu";
 
-const CSS_REGEX = /\.css$/;
-
 export function purgecss(options: Partial<Options>): Plugin {
   const _options = defu(options, defaultOptions) as Options;
   return {
     name: "@shreyas/vite-plugin-purgecss",
     enforce: "post",
     async generateBundle(_, bundle) {
-      const cssFiles: string[] = [];
-      for (const file of Object.keys(bundle)) {
-        if (file.match(CSS_REGEX)) {
-          cssFiles.push(file);
-        }
-      }
+      const cssFiles: string[] = Object.keys(bundle).filter((file) =>
+        file.endsWith(".css"),
+      );
       if (cssFiles.length === 0) return;
 
       const purgecss = new PurgeCSS();
@@ -23,6 +18,7 @@ export function purgecss(options: Partial<Options>): Plugin {
         ...(_options.content ?? []),
         "**/*.{html,js,jsx,ts,tsx,vue,svelte}",
       ];
+
       for (const cssFile of cssFiles) {
         if ("source" in bundle[cssFile]) {
           const input = bundle[cssFile].source;
@@ -40,6 +36,8 @@ export function purgecss(options: Partial<Options>): Plugin {
   };
 }
 
-purgecss({});
+export const safeLists = {
+  svelte: /svelte-[a-zA-Z0-9]{6,8}/,
+};
 
 export default purgecss;
