@@ -29,8 +29,10 @@ export function purgecss(options: Partial<Options>): Plugin {
           if (typeof input !== "string") continue;
           const purged = await purgecss.purge({
             ..._options,
-            content: [...content, { raw: input, extension: "css" }],
+            content,
+            css: [..._options.css, { raw: input }],
           });
+          if (purged.length === 0) continue;
           bundle[cssFile].source = purged[0].css;
         }
       }
